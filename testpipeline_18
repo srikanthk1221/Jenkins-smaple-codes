@@ -1,0 +1,14 @@
+pipeline {
+    agent { label 'demo' }
+    stages {
+        stage ('Stage1') {
+            steps {
+              sh 'touch testfirst'
+              dir('/tmp/jenkins') {
+                sh 'touch testme'  
+            }
+            sh 'touch testlast'
+            }
+        }
+    }
+}
