@@ -1,0 +1,15 @@
+pipeline {
+    agent { label 'demo' }
+    stages {
+        stage ('CIFEATX') {
+            steps {
+                build job: 'CIJob_feature_X', wait: false
+            }
+        }
+        stage ('stage2') {
+            steps {
+                echo 'Testing'
+            }
+        }
+    }
+}
