@@ -1,0 +1,15 @@
+pipeline {
+    agent { label "demo" }
+    options {
+        timestamps()
+    }
+    stages { 
+        stage('Clone Repo') {
+            steps {
+                echo "going to checkout from git"
+                git branch: 'master', url:'https://github.com/srikanthk1221/maveen.git'
+                echo "completd checkout from git"
+            }
+        }
+    }
+}
