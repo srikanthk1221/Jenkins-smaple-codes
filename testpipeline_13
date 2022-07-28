@@ -1,0 +1,13 @@
+pipeline {
+    agent { label 'demo'}
+    triggers {
+        upstream(upstreamProjects: 'CIJob_feature_X', threshold: hudson.model.Result.SUCCESS)
+    }
+    stages {
+        stage ('stage1') {
+            steps {
+                 echo 'test'
+            }
+        }
+    }
+}
