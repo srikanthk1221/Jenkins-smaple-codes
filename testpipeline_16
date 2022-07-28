@@ -1,0 +1,10 @@
+pipeline {
+    agent { label 'demo' }
+    stages {
+        stage('mail') {
+            steps {
+                mail bcc: ",body: 'Hi Srikanth', cc:",from:",replyTo:",subject: 'Test Mail', to: 'srikanth.kanigolla@gmail.com'
+            }
+        }
+    }
+}
