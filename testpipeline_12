@@ -1,0 +1,13 @@
+pipeline {
+    agent { label 'demo'}
+    triggers {
+        cron('45 * * * *')
+    }
+    stages {
+        stage ('stage1') {
+            steps {
+                 echo 'test'
+            }
+        }
+    }
+}
