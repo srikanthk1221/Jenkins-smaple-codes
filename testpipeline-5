@@ -1,0 +1,22 @@
+pipeline {
+    agent { label "demo"
+    }
+    environment {
+        VARVAL ="global"
+    }
+    stages {
+        stage ("stage1") {
+            environment {
+                VARVAL = "SRIKANTH"
+            }
+            steps {
+                sh "echo 'your name $VARVAL'"
+            }
+        }
+        stage ("stage2") {
+            steps {
+                echo env.VARVAL
+            }
+        }
+    }
+}
