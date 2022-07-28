@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    environment { DEPLOY_TO = 'qa' }
+        stages {
+            stage ('stage1') {
+                when {
+                    environment name: 'DEPLOY_TO', value: 'qa'
+                }
+                steps { 
+                    echo 'Running Stage1 for QA'
+                }
+            }
+            stage ('stage2') {
+                when {
+                    environment name: 'DEPLOY_TO', value: 'production'
+                }
+                steps {
+                    echo 'running stage1 for production'
+                }
+            }
+        }
+}
